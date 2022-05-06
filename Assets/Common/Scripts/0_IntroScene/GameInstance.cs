@@ -68,9 +68,11 @@ public class GameInstance : HSingleton<GameInstance>
 
     void Start()
     {
+        
         DontDestroyOnLoad(this);
+        
     }
-
+   
     private void SetAutoControlType()
     {
         if (Application.platform == RuntimePlatform.WebGLPlayer ||

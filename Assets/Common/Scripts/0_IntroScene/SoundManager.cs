@@ -17,11 +17,10 @@ public enum E_SOUNLIST
     E_LANDMINESHOT,         // 9 
     E_SLIMECLONEATTACK,     // 10
     E_DIE,                  // 11
-    E_BGM_TESTBGM,          // 12
-    E_OPEN,                 // 13
-    E_SCROLLSOUND,          // 14
-    E_STARTBUTTON,          // 15
-    E_SOUND_MAX             // 16
+    E_LobbySound,           // 12
+    E_GameSound,            // 13
+    E_Lodding,              // 14
+
 }
 
 

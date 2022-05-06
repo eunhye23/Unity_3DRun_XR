@@ -8,12 +8,16 @@ public class HSpawnManager : MonoBehaviour
     JPlotSpanwer plotSpawner;
     JObstaclesSpanwer obstaclesSpawner;
     public Item_Collection itemColletction;
+    ObjectManager objectManager;
+    
 
     void Start()
     {
         roadSpawn = GetComponent<HRoadSpawn>();
         plotSpawner = GetComponent<JPlotSpanwer>();
         obstaclesSpawner = GetComponent<JObstaclesSpanwer>();
+        objectManager = GetComponent<ObjectManager>();
+        
     }
 
    

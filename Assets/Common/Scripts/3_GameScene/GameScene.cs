@@ -23,6 +23,7 @@ public class GameScene : HSingleton<GameScene>
 
     public float StartdelayT;
     public bool IsStartDelay = false;
+    bool isStage;
 
     /// <summary>
     /// UI text모음
@@ -58,6 +59,7 @@ public class GameScene : HSingleton<GameScene>
         GotoLobbyScene();
         player = GameObject.Find("Player");
         StartCoroutine("UI_Time");
+        SoundManager.Play(E_SOUNLIST.E_GameSound);
     }
     public void Update()
     {
@@ -82,6 +84,12 @@ public class GameScene : HSingleton<GameScene>
     //====================================================================================
     //====================================================================================
     //====================================================================================
+    public void PlaySound()
+    {
+        
+        { 
+        }
+    }
     IEnumerator UI_Time()
     {
         while (true)
@@ -163,13 +171,13 @@ public class GameScene : HSingleton<GameScene>
         ReStartPanel.SetActive(true);
     }
 
-    public void GoToReGameBtn()
+    public void GoToLobbyBtn()
     {
         IsPause = false;
         Time.timeScale = 1;
         //fade in fade out? 넣어야할듯 , UI초기화도 필요
         SceneManager.LoadScene("2_LobbyScene");  //3_GameScene
-        
+        SoundManager.AStop();
     }
 
     public void GoToOptionBtn()

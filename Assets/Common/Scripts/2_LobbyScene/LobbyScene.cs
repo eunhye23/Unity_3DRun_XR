@@ -32,21 +32,12 @@ public class LobbyScene : HSingleton<LobbyScene>
     private void Awake()
     {
         gameInstance = GameObject.Find("GameInstance").GetComponent<GameInstance>();
+       
     }
-
-
     void Start()
-    {
+    {        
         GotoIntroScene();
-    }
-
-    /// <summary>
-    /// 로고씬으로 가기^^^ 고고싱
-    /// </summary>
-    private void GotoIntroScene()
-    {
-       //if (GameObject.Find("GameInstance") == null)
-       //    SceneManager.LoadScene("1_LoginScene");
+        SoundManager.Play(E_SOUNLIST.E_LobbySound);
     }
 
     void Update()
@@ -60,9 +51,18 @@ public class LobbyScene : HSingleton<LobbyScene>
     //====================================================================================
     //====================================================================================
     //====================================================================================
-
+    
+    /// <summary>
+    /// 로고씬으로 가기^^^ 고고싱
+    /// </summary>
+    private void GotoIntroScene()
+    {
+        //if (GameObject.Find("GameInstance") == null)
+        //    SceneManager.LoadScene("1_LoginScene");
+    }
     public void StageBtn()
     {
+        SoundManager.Play(E_SOUNLIST.E_SHOTBULLET);
         isStage = true;
         shopPanel.SetActive(true);
     }
@@ -74,8 +74,9 @@ public class LobbyScene : HSingleton<LobbyScene>
     {
         if(isStage)
         {
-            SoundManager.Play(E_SOUNLIST.E_SHOTBULLET);
 
+            //SoundManager.Play(E_SOUNLIST.E_SHOTBULLET);
+           
             if (GameInstance.I.CreatePopupLoading(CanvasTM))
             {
                 Debug.Log("개개개개개개개개개");
@@ -84,28 +85,32 @@ public class LobbyScene : HSingleton<LobbyScene>
             Invoke("GotoGameSceneInvoke", 0.5f);
 
             isStage = false;
+            SoundManager.AStop();
         }
     }
 
     void GotoGameSceneInvoke()
     {
-
+        
         SceneManager.LoadScene("3_GameScene");
     }
 
     public void GoToOptionBtn()
     {
+        SoundManager.Play(E_SOUNLIST.E_SHOTBULLET);
         OptionPanel.SetActive(true);
        
     }
     public void GoToBackBtn()
     {
+        SoundManager.Play(E_SOUNLIST.E_SHOTBULLET);
         OptionPanel.SetActive(false);
         
     }
 
     public void GoToLobbyScene()
     {
+        SoundManager.Play(E_SOUNLIST.E_SHOTBULLET);
         shopPanel.SetActive(false);
     }
 

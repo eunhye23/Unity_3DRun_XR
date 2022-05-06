@@ -26,20 +26,20 @@ public class ObjectManager : MonoBehaviour
     void Awake()
     {
 
-        plot1 = new GameObject[5];
-        plot2 = new GameObject[5];
-        plot3 = new GameObject[5];
-        plot4 = new GameObject[5];
-        plot5 = new GameObject[5];
-        plot6 = new GameObject[5];
-        plot7 = new GameObject[5];
-        plot8 = new GameObject[5];
-        plot9 = new GameObject[5];
-        plot10 = new GameObject[5];
-        plot11 = new GameObject[5];
-        plot12 = new GameObject[5];
-        plot13 = new GameObject[5];
-        plot14 = new GameObject[5];
+        plot1 = new GameObject[6];
+        plot2 = new GameObject[6];
+        plot3 = new GameObject[6];
+        plot4 = new GameObject[6];
+        plot5 = new GameObject[6];
+        plot6 = new GameObject[6];
+        plot7 = new GameObject[6];
+        plot8 = new GameObject[6];
+        plot9 = new GameObject[6];
+        plot10 = new GameObject[6];
+        plot11 = new GameObject[6];
+        plot12 = new GameObject[6];
+        plot13 = new GameObject[6];
+        plot14 = new GameObject[6];
 
 
         Generate();

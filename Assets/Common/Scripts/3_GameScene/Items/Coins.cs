@@ -46,6 +46,7 @@ public class Coins : MonoBehaviour
                     break;
 
                 case Coin_Type.BLONZE:
+                    SoundManager.Play(E_SOUNLIST.E_EATCELL_2);
                     gameInstance.coinScore++;
                     this.gameObject.SetActive(false);
                     Debug.Log(gameInstance.coinScore);

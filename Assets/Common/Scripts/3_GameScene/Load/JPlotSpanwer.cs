@@ -9,13 +9,14 @@ public class JPlotSpanwer : MonoBehaviour
     private float xPosLeft = -24.21f;
     private float xPosRight = 24.21f;
     private float lastZPos = -45f;
-
+    
     public string[] plots;
 
     public ObjectManager objectManager;
 
     void Awake()
     {
+        
         plots = new string[]{ "Plane_Left (0)", "Plane_Left (1)", "Plane_Left (2)",
                               "Plane_Left (3)", "Plane_Left (4)","Plane_Left (5)","Plane_Left (6)",
                               "Plane_Left (7)", "Plane_Left (8)","Plane_Left (9)","Plane_Left (10)",
@@ -24,16 +25,17 @@ public class JPlotSpanwer : MonoBehaviour
 
     private void Start()
     {
-      for (int i = 0; i < initAmount; i++)
-      {
-          SpawnPlot();
-     
-      }
+        for (int i = 0; i < initAmount; i++)
+        {
+            SpawnPlot();
+
+        }
     }
 
     public void SpawnPlot()
     {
         StartCoroutine(SpawnPlotCoroutine());
+
     }
 
     IEnumerator SpawnPlotCoroutine()
@@ -62,7 +64,7 @@ public class JPlotSpanwer : MonoBehaviour
 
         lastZPos += plotSize;
 
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(15f);
 
         plotL.SetActive(false);
         plotR.SetActive(false);
@@ -72,18 +74,7 @@ public class JPlotSpanwer : MonoBehaviour
 
 
 
-    //Invoke("plotInvoke", 1f);
-
-
-    public void plotInvoke()
-    {
-        gameObject.SetActive(false);
-
-    }
-    public void plotStartInvoke()
-    {
-        gameObject.SetActive(true);
-    }
+   
 
 
 }

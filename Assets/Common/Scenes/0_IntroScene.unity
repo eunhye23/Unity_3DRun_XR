@@ -11534,7 +11534,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 544705323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c0582be4bfe9bd47b5d8723d8810c66, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b7ea398866bae4fadd7c0adbeeddc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &544705325
@@ -16164,6 +16164,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 209f2e9d72080094288379ff18ecf949, type: 3}
   - {fileID: 8300000, guid: c89b219187e355f4bbf902c230ef78e4, type: 3}
   - {fileID: 8300000, guid: aee287064d3227c45b4c79bc252b9f16, type: 3}
+  - {fileID: 8300000, guid: d1bc52cb1d8a9244eb451d664213526f, type: 3}
+  - {fileID: 8300000, guid: 80cfb8b20e3e440488d309187d732137, type: 3}
+  - {fileID: 8300000, guid: 10f10037a2ca81547ba23f5f4c40982e, type: 3}
   AudioManager: {fileID: 663288350}
   nAudioChannels: 10
 --- !u!1001 &686704593
