@@ -22,6 +22,9 @@ public class HSpawnManager : MonoBehaviour
         
     }
 
+   
+
+
     public void SpawnTriggerEnter()
     {
         roadSpawn.MoveRoad();

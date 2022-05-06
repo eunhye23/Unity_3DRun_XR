@@ -45,6 +45,7 @@ public class GameInstance : HSingleton<GameInstance>
     public E_CONTROL eControlType;
 
     public int coinScore;
+    //public SoundManager HSoundMng;
 
     protected GameInstance() { }
 
@@ -120,7 +121,7 @@ public class GameInstance : HSingleton<GameInstance>
     /// <returns></returns>
     public bool CreatePopupLoading(Transform Parent, int nType = 0)
     {
-        //HSoundMng.Play(E_SOUNLIST.E_EATBULLET);
+        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
         GameObject obj = GameInstance.I.CreatePrefab("POPUP",
                                                        nType,
                                                        Vector3.zero,
