@@ -17,7 +17,7 @@ public class IntroSecne : MonoBehaviour
     void Start()
     {   
         SoundManager.Play(E_SOUNLIST.E_Lodding);
-        SoundManager.SetAVolume(10f, true);
+        SoundManager.SetAVolume(0.7f);
 
     }
 

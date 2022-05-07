@@ -146,6 +146,7 @@ public class PlayerCtrl : MonoBehaviour
         if (touchEnd.y - touchStart.y >= dragDistanceY)
         {
             movement.MoveToY();
+           
             StartCoroutine(JumpOrDownTouchCoroutine());
             return;
         }
@@ -204,6 +205,7 @@ public class PlayerCtrl : MonoBehaviour
             foreach (SkinnedMeshRenderer mesh in meshs)
             {
                 mesh.material.color = Color.red;
+                SoundManager.Play(E_SOUNLIST.E_Damage);
             }
             movement.moveSpeed = 17f;
 
@@ -234,6 +236,7 @@ public class PlayerCtrl : MonoBehaviour
         {
             //start Jumpanim trigger
             anim.SetBool("IsJump", true);
+            
         }
         else
         {

@@ -104,6 +104,7 @@ public class PlayerTouchMovement : MonoBehaviour
 
         isJump = true;
         rd.useGravity = false;
+        SoundManager.Play(E_SOUNLIST.E_Jump);
 
         while (percent < 1)
         {
@@ -111,7 +112,9 @@ public class PlayerTouchMovement : MonoBehaviour
             percent = current / moveTimeY;
 
             float y = originY + (v0 * percent) + (gravity * percent * percent);
+            
             transform.position = new Vector3(transform.position.x,Mathf.Clamp(y,0,7), transform.position.z);
+            
 
             yield return null;
 

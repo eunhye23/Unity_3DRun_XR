@@ -16167,6 +16167,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d1bc52cb1d8a9244eb451d664213526f, type: 3}
   - {fileID: 8300000, guid: 80cfb8b20e3e440488d309187d732137, type: 3}
   - {fileID: 8300000, guid: 10f10037a2ca81547ba23f5f4c40982e, type: 3}
+  - {fileID: 8300000, guid: 912f22180608472469d5b87d84761c4b, type: 3}
+  - {fileID: 8300000, guid: c32bdc1d7ea8a2242a10f2b106c88df3, type: 3}
   AudioManager: {fileID: 663288350}
   nAudioChannels: 10
 --- !u!1001 &686704593

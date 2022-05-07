@@ -20,6 +20,8 @@ public enum E_SOUNLIST
     E_LobbySound,           // 12
     E_GameSound,            // 13
     E_Lodding,              // 14
+    E_Damage,
+    E_Jump,
 
 }
 
