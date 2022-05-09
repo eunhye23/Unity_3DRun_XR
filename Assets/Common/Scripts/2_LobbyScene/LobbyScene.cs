@@ -38,6 +38,7 @@ public class LobbyScene : HSingleton<LobbyScene>
     {        
         GotoIntroScene();
         SoundManager.Play(E_SOUNLIST.E_LobbySound);
+        SoundManager.SetAVolume(0.7f);
     }
 
     void Update()
@@ -97,26 +98,27 @@ public class LobbyScene : HSingleton<LobbyScene>
 
     public void GoToOptionBtn()
     {
-        SoundManager.Play(E_SOUNLIST.E_SHOTBULLET);
+        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
         OptionPanel.SetActive(true);
        
     }
     public void GoToBackBtn()
     {
-        SoundManager.Play(E_SOUNLIST.E_SHOTBULLET);
+        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
         OptionPanel.SetActive(false);
         
     }
 
     public void GoToLobbyScene()
     {
-        SoundManager.Play(E_SOUNLIST.E_SHOTBULLET);
+        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
         shopPanel.SetActive(false);
     }
 
     public void GoToQuitBtn()
     {
 #if UNITY_EDITOR
+        
         UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit(); // 어플리케이션 종료

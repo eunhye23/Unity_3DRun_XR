@@ -150,6 +150,7 @@ public class GameScene : HSingleton<GameScene>
     }
     public void GamePauseBtn()
     {
+        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
         GamePause();
         pausePanel.SetActive(true);      
     }
@@ -160,6 +161,7 @@ public class GameScene : HSingleton<GameScene>
         {
             Time.timeScale = 1;
             IsPause = false;
+            SoundManager.Play(E_SOUNLIST.E_EATBULLET);
             pausePanel.SetActive(false);
             OptionPanel.SetActive(false);
             return;
@@ -168,6 +170,7 @@ public class GameScene : HSingleton<GameScene>
 
     public void RestartQBtn()
     {
+        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
         ReStartPanel.SetActive(true);
     }
 
@@ -175,6 +178,7 @@ public class GameScene : HSingleton<GameScene>
     {
         IsPause = false;
         Time.timeScale = 1;
+        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
         //fade in fade out? 넣어야할듯 , UI초기화도 필요
         SceneManager.LoadScene("2_LobbyScene");  //3_GameScene
         SoundManager.AStop();
@@ -182,18 +186,23 @@ public class GameScene : HSingleton<GameScene>
 
     public void GoToOptionBtn()
     {
+        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
         OptionPanel.SetActive(true);
         pausePanel.SetActive(false);
     }
 
     public void GoToBackBtn()
     {
+        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
         OptionPanel.SetActive(false);
+        ReStartPanel.SetActive(false);
         pausePanel.SetActive(true);
+        
     }
     public void GoToQuitBtn()
     {
 #if UNITY_EDITOR
+        
         UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit(); // 어플리케이션 종료

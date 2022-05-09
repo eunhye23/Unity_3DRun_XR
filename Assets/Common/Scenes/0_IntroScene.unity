@@ -10690,7 +10690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingBarSlider: {fileID: 121157938}
-  fScrollSpeed: 0.7
+  fScrollSpeed: 0.8
 --- !u!215 &363191995
 ReflectionProbe:
   m_ObjectHideFlags: 0
@@ -16169,6 +16169,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 10f10037a2ca81547ba23f5f4c40982e, type: 3}
   - {fileID: 8300000, guid: 912f22180608472469d5b87d84761c4b, type: 3}
   - {fileID: 8300000, guid: c32bdc1d7ea8a2242a10f2b106c88df3, type: 3}
+  - {fileID: 8300000, guid: 9f1af82ee7cf51b4eb3713c7dc97a0e9, type: 3}
   AudioManager: {fileID: 663288350}
   nAudioChannels: 10
 --- !u!1001 &686704593

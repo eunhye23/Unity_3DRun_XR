@@ -16,8 +16,8 @@ public class IntroSecne : MonoBehaviour
 
     void Start()
     {   
-        SoundManager.Play(E_SOUNLIST.E_Lodding);
-        SoundManager.SetAVolume(0.7f);
+        //SoundManager.Play(E_SOUNLIST.E_Lodding);
+        //SoundManager.SetAVolume(0.7f);
 
     }
 
@@ -39,7 +39,7 @@ public class IntroSecne : MonoBehaviour
 
     private void NextScene()
     {
-        SoundManager.AStop();
+        //SoundManager.AStop();
         SceneManager.LoadScene("2_LobbyScene");        
     }
 

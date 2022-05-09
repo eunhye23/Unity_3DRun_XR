@@ -67,7 +67,7 @@ public class PlayerTouchMovement : MonoBehaviour
     {
         if (isJump == true)
             return;
-
+        
         StartCoroutine(OnMoveToY());
     }
 

@@ -145,8 +145,7 @@ public class PlayerCtrl : MonoBehaviour
 
         if (touchEnd.y - touchStart.y >= dragDistanceY)
         {
-            movement.MoveToY();
-           
+            movement.MoveToY();          
             StartCoroutine(JumpOrDownTouchCoroutine());
             return;
         }
@@ -159,8 +158,7 @@ public class PlayerCtrl : MonoBehaviour
     }
 
     private void HPHandle()
-    {
-        //?????? ?????? hp???? ???????? ???????? ????
+    {      
         hpbar.value = Mathf.Lerp(hpbar.value, (float)curHp / (float)maxHp, Time.deltaTime * 10);
     }
 
@@ -230,20 +228,21 @@ public class PlayerCtrl : MonoBehaviour
     IEnumerator JumpOrDownTouchCoroutine()
     {
         IsSlied = true;
+       
         //capsuleCol.enabled = false;
 
         if (movement.isJump)
         {
             //start Jumpanim trigger
-            anim.SetBool("IsJump", true);
-            
+            anim.SetBool("IsJump", true);           
         }
         else
         {
-            anim.SetBool("IsSlide", true);
+            anim.SetBool("IsSlide", true);           
         }
 
         yield return new WaitForSeconds(0.2f);
+        
         IsSlied = false;
 
 
