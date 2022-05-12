@@ -810,9 +810,6 @@ UnityEngine.PlayerConnectionInternal::PollInternal
 UnityEngine.PlayerConnectionInternal::RegisterInternal
 UnityEngine.PlayerConnectionInternal::SendMessage
 UnityEngine.PlayerConnectionInternal::UnregisterInternal
-UnityEngine.PlayerPrefs::HasKey
-UnityEngine.PlayerPrefs::TrySetFloat
-UnityEngine.PlayerPrefs::GetFloat
 UnityEngine.PropertyNameUtils::PropertyNameFromString_Injected
 UnityEngine.QualitySettings::get_pixelLightCount
 UnityEngine.QualitySettings::get_vSyncCount
