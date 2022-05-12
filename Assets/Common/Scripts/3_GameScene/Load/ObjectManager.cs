@@ -26,20 +26,20 @@ public class ObjectManager : MonoBehaviour
     void Awake()
     {
 
-        plot1 = new GameObject[6];
-        plot2 = new GameObject[6];
-        plot3 = new GameObject[6];
-        plot4 = new GameObject[6];
-        plot5 = new GameObject[6];
-        plot6 = new GameObject[6];
-        plot7 = new GameObject[6];
-        plot8 = new GameObject[6];
-        plot9 = new GameObject[6];
-        plot10 = new GameObject[6];
-        plot11 = new GameObject[6];
-        plot12 = new GameObject[6];
-        plot13 = new GameObject[6];
-        plot14 = new GameObject[6];
+        plot1 = new GameObject[8];
+        plot2 = new GameObject[8];
+        plot3 = new GameObject[8];
+        plot4 = new GameObject[8];
+        plot5 = new GameObject[8];
+        plot6 = new GameObject[8];
+        plot7 = new GameObject[8];
+        plot8 = new GameObject[8];
+        plot9 = new GameObject[8];
+        plot10 = new GameObject[8];
+        plot11 = new GameObject[8];
+        plot12 = new GameObject[8];
+        plot13 = new GameObject[8];
+        plot14 = new GameObject[8];
 
 
         Generate();
@@ -137,59 +137,59 @@ public class ObjectManager : MonoBehaviour
 
         switch (type)
         {
-            case "Plane_Left (0)":
+            case "Plane_Left(0)":
                 targetpool = plot1;
                 break;
 
-            case "Plane_Left (1)":
+            case "Plane_Left(1)":
                 targetpool = plot2;
                 break;
 
-            case "Plane_Left (2)":
+            case "Plane_Left(2)":
                 targetpool = plot3;
                 break;
 
-            case "Plane_Left (3)":
+            case "Plane_Left(3)":
                 targetpool = plot4;
                 break;
 
-            case "Plane_Left (4)":
+            case "Plane_Left(4)":
                 targetpool = plot5;
                 break;
 
-            case "Plane_Left (5)":
+            case "Plane_Left(5)":
                 targetpool = plot6;
                 break;
 
-            case "Plane_Left (6)":
+            case "Plane_Left(6)":
                 targetpool = plot7;
                 break;
             
-            case "Plane_Left (7)":
+            case "Plane_Left(7)":
                 targetpool = plot8;
                 break;
 
-            case "Plane_Left (8)":
+            case "Plane_Left(8)":
                 targetpool = plot9;
                 break;
 
-            case "Plane_Left (9)":
+            case "Plane_Left(9)":
                 targetpool = plot10;
                 break;
 
-            case "Plane_Left (10)":
+            case "Plane_Left(10)":
                 targetpool = plot11;
                 break;
 
-            case "Plane_Left (11)":
+            case "Plane_Left(11)":
                 targetpool = plot12;
                 break;
 
-            case "Plane_Left (12)":
+            case "Plane_Left(12)":
                 targetpool = plot13;
                 break;
 
-            case "Plane_Left (13)":
+            case "Plane_Left(13)":
                 targetpool = plot14;
                 break;
 

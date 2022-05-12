@@ -17,10 +17,10 @@ public class JPlotSpanwer : MonoBehaviour
     void Awake()
     {
         
-        plots = new string[]{ "Plane_Left (0)", "Plane_Left (1)", "Plane_Left (2)",
-                              "Plane_Left (3)", "Plane_Left (4)","Plane_Left (5)","Plane_Left (6)",
-                              "Plane_Left (7)", "Plane_Left (8)","Plane_Left (9)","Plane_Left (10)",
-                              "Plane_Left (11)", "Plane_Left (12)","Plane_Left (13)"};
+        plots = new string[]{ "Plane_Left(0)", "Plane_Left(1)", "Plane_Left(2)",
+                              "Plane_Left(3)", "Plane_Left(4)","Plane_Left(5)","Plane_Left(6)",
+                              "Plane_Left(7)", "Plane_Left(8)","Plane_Left(9)","Plane_Left(10)",
+                              "Plane_Left(11)", "Plane_Left(12)","Plane_Left(13)"};
     }
 
     private void Start()
