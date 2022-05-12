@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MHomiLibrary;
 using System;
+using UnityEngine.UI;
 
 public enum E_PLAYER { ME, OTHER, AI }
 public enum E_CONTROL { JOYSTICK, KEYBOARD }
@@ -45,8 +46,16 @@ public class GameInstance : HSingleton<GameInstance>
     public E_CONTROL eControlType;
 
     public int coinScore;
-    //public SoundManager HSoundMng;
+    /// <summary>
+    /// playerHP
+    /// </summary>
+    public float maxHp = 100;
+    public float curHp = 100;
 
+    public int stage01Score;
+    public int stage01Distance;
+
+    public bool Stage01Start;
     protected GameInstance() { }
 
     private void Awake()
@@ -68,11 +77,9 @@ public class GameInstance : HSingleton<GameInstance>
 
     void Start()
     {
-        
         DontDestroyOnLoad(this);
-        
     }
-   
+
     private void SetAutoControlType()
     {
         if (Application.platform == RuntimePlatform.WebGLPlayer ||
@@ -123,7 +130,7 @@ public class GameInstance : HSingleton<GameInstance>
     /// <returns></returns>
     public bool CreatePopupLoading(Transform Parent, int nType = 0)
     {
-        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
+        //HSoundMng.Play(E_SOUNLIST.E_EATBULLET);
         GameObject obj = GameInstance.I.CreatePrefab("POPUP",
                                                        nType,
                                                        Vector3.zero,
@@ -143,6 +150,36 @@ public class GameInstance : HSingleton<GameInstance>
         }
 
         return false;
+
+    }
+
+    public void Stage01Star(List<Image> starImg)
+    {
+        if(stage01Score > 300)
+        {
+            Color color01 = starImg[0].GetComponent<Image>().color;
+
+            color01.a = 1f;
+            starImg[0].GetComponent<Image>().color = color01;
+
+            if(stage01Score > 500)
+            {
+                Color color02 = starImg[1].GetComponent<Image>().color;
+
+                color02.a = 1f;
+                starImg[1].GetComponent<Image>().color = color02;
+
+                if (stage01Score > 1000)
+                {
+                    Color color03 = starImg[2].GetComponent<Image>().color;
+
+                    color03.a = 1f;
+                    starImg[2].GetComponent<Image>().color = color03;
+
+                }
+
+            }
+        }
 
     }
 }

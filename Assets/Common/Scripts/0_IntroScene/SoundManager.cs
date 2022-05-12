@@ -17,13 +17,11 @@ public enum E_SOUNLIST
     E_LANDMINESHOT,         // 9 
     E_SLIMECLONEATTACK,     // 10
     E_DIE,                  // 11
-    E_LobbySound,           // 12
-    E_GameSound,            // 13
-    E_Lodding,              // 14
-    E_Damage,               // 15
-    E_Jump,                 // 16
-    E_Slide,                // 17
-                            // 18
+    E_LobbyBakcG,           // 12
+    E_GameBackG,            // 13
+    E_Damage,               // 14
+    E_Jump,                 // 15
+    E_Slide,                // 16
 }
 
 
@@ -67,7 +65,7 @@ public class SoundManager : MGameSoundMng<SoundManager>
         I.Play(SoundNames[(int)Sound], bLoop, bBGM);
     }
 
-    public static void SetAVolume(float fSound, bool bBGM = false)
+    public static void SetAVolume( float fSound, bool bBGM = false)
     {
         I.SetVolume(fSound, bBGM);
     }
@@ -75,5 +73,9 @@ public class SoundManager : MGameSoundMng<SoundManager>
     public static void AStop(bool bBGM = false)
     {
         I.Stop(bBGM);
+    }
+    public static void Volume(E_SOUNLIST Sound, float fSound)
+    {
+
     }
 }

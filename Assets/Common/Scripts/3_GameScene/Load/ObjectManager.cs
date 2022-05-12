@@ -137,59 +137,59 @@ public class ObjectManager : MonoBehaviour
 
         switch (type)
         {
-            case "Plane_Left(0)":
+            case "Plane_Left (0)":
                 targetpool = plot1;
                 break;
 
-            case "Plane_Left(1)":
+            case "Plane_Left (1)":
                 targetpool = plot2;
                 break;
 
-            case "Plane_Left(2)":
+            case "Plane_Left (2)":
                 targetpool = plot3;
                 break;
 
-            case "Plane_Left(3)":
+            case "Plane_Left (3)":
                 targetpool = plot4;
                 break;
 
-            case "Plane_Left(4)":
+            case "Plane_Left (4)":
                 targetpool = plot5;
                 break;
 
-            case "Plane_Left(5)":
+            case "Plane_Left (5)":
                 targetpool = plot6;
                 break;
 
-            case "Plane_Left(6)":
+            case "Plane_Left (6)":
                 targetpool = plot7;
                 break;
             
-            case "Plane_Left(7)":
+            case "Plane_Left (7)":
                 targetpool = plot8;
                 break;
 
-            case "Plane_Left(8)":
+            case "Plane_Left (8)":
                 targetpool = plot9;
                 break;
 
-            case "Plane_Left(9)":
+            case "Plane_Left (9)":
                 targetpool = plot10;
                 break;
 
-            case "Plane_Left(10)":
+            case "Plane_Left (10)":
                 targetpool = plot11;
                 break;
 
-            case "Plane_Left(11)":
+            case "Plane_Left (11)":
                 targetpool = plot12;
                 break;
 
-            case "Plane_Left(12)":
+            case "Plane_Left (12)":
                 targetpool = plot13;
                 break;
 
-            case "Plane_Left(13)":
+            case "Plane_Left (13)":
                 targetpool = plot14;
                 break;
 

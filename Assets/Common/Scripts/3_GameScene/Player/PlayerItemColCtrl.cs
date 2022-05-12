@@ -6,7 +6,7 @@ public class PlayerItemColCtrl : MonoBehaviour
 {
 
     public PlayerCtrl player;
-    public ParticleSystem ItemP;
+    //public ParticleSystem ItemP;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +29,15 @@ public class PlayerItemColCtrl : MonoBehaviour
         
         if (other.CompareTag("Items"))
         {
-            ItemP.Play();
+            player.EffectList[0].Play();
         }
+
+        if (other.CompareTag("ObsSpawnTrigger"))
+        {
+            player.spawnManager.obstaclesSpawner.SpawnObstacle();
+
+        }
+
     }
 
 }

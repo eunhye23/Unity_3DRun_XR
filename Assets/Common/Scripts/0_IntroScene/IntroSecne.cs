@@ -15,9 +15,7 @@ public class IntroSecne : MonoBehaviour
     public float fScrollSpeed;
 
     void Start()
-    {   
-        //SoundManager.Play(E_SOUNLIST.E_Lodding);
-        //SoundManager.SetAVolume(0.7f);
+    {
 
     }
 
@@ -39,8 +37,7 @@ public class IntroSecne : MonoBehaviour
 
     private void NextScene()
     {
-        //SoundManager.AStop();
-        SceneManager.LoadScene("2_LobbyScene");        
+        SceneManager.LoadScene("2_LobbyScene");
     }
 
     public void OnDstroy()

@@ -6,18 +6,14 @@ public class HSpawnManager : MonoBehaviour
 {
     HRoadSpawn roadSpawn;
     JPlotSpanwer plotSpawner;
-    JObstaclesSpanwer obstaclesSpawner;
+    public JObstaclesSpanwer obstaclesSpawner;
     public Item_Collection itemColletction;
-    ObjectManager objectManager;
-    
 
     void Start()
     {
         roadSpawn = GetComponent<HRoadSpawn>();
         plotSpawner = GetComponent<JPlotSpanwer>();
         obstaclesSpawner = GetComponent<JObstaclesSpanwer>();
-        objectManager = GetComponent<ObjectManager>();
-        
     }
 
    
@@ -26,15 +22,13 @@ public class HSpawnManager : MonoBehaviour
         
     }
 
-   
-
-
     public void SpawnTriggerEnter()
     {
         roadSpawn.MoveRoad();
         plotSpawner.SpawnPlot();
-        obstaclesSpawner.SpawnObstacle();
         itemColletction.ItemSpawn();
     }
+
+
 
 }

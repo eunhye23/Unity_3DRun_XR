@@ -13,12 +13,7 @@ public class PlayerCtrl : MonoBehaviour
     /// <summary>
     /// 이펙트 리스트
     /// </summary>
-    public List<GameObject> EffectList;
-
-    /// <summary>
-    /// 파티클 리스트
-    /// </summary>
-    public List<ParticleSystem> ShieldParticles;
+    public List<ParticleSystem> EffectList;
 
     [SerializeField]
     private float dragDistance = 14.0f;
@@ -36,15 +31,15 @@ public class PlayerCtrl : MonoBehaviour
     private SkinnedMeshRenderer[] meshs;
     private PlayerTouchMovement movement;
 
-
     private GameScene gameScene;
-    private GameInstance gameInstance;
+    public GameInstance gameInstance;
     public Item_Collection itemCollection;
 
     public Animator anim;
 
     public HSpawnManager spawnManager;
     public CapsuleCollider capsuleCol;
+    private AudioManager audioManager;
 
     public bool IsHit = false;
     public bool PlayerDie = false;
@@ -53,43 +48,40 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField]
     private Slider hpbar;
 
-
-    public float maxHp = 100;
-    public float curHp = 100;
-
-
     private void Awake()
     {
         movement = GetComponent<PlayerTouchMovement>();
         meshs = GetComponentsInChildren<SkinnedMeshRenderer>();
         gameScene = GameObject.Find("GameScene").GetComponent<GameScene>();
         gameInstance = GameObject.Find("GameInstance").GetComponent<GameInstance>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void Start()
     {
         //gameScene.StartDelayTime();
-        hpbar.value = (float)curHp / (float)maxHp;
-        movement.moveSpeed = 30;
-        Debug.Log(movement.moveSpeed);
+        Init();
 
     }
 
     void Update()
     {
-        //if(!gameScene.IsStartDelay)
-        //{
-        HPHandle();
 
-        if (Application.isMobilePlatform)
+        if (!PlayerDie)
         {
-            OnMobilePlatform();
+            //if(!gameScene.IsStartDelay)
+            //{
+            HPHandle();
+
+            if (Application.isMobilePlatform)
+            {
+                OnMobilePlatform();
+            }
+            else
+            {
+                OnPCPlatform();
+            }
         }
-        else
-        {
-            OnPCPlatform();
-        }
-        //
     }
 
     //[사용자 정의 함수]==================================================================
@@ -98,6 +90,14 @@ public class PlayerCtrl : MonoBehaviour
     //====================================================================================
     //====================================================================================
     //====================================================================================
+    void Init()
+    {
+        PlayerDie = false;
+        hpbar.value = gameInstance.curHp / gameInstance.maxHp;
+        movement.moveSpeed = 30;
+
+        gameInstance.curHp = gameInstance.maxHp;
+    }
 
     void OnMobilePlatform()
     {
@@ -145,7 +145,7 @@ public class PlayerCtrl : MonoBehaviour
 
         if (touchEnd.y - touchStart.y >= dragDistanceY)
         {
-            movement.MoveToY();          
+            movement.MoveToY();
             StartCoroutine(JumpOrDownTouchCoroutine());
             return;
         }
@@ -158,20 +158,21 @@ public class PlayerCtrl : MonoBehaviour
     }
 
     private void HPHandle()
-    {      
-        hpbar.value = Mathf.Lerp(hpbar.value, (float)curHp / (float)maxHp, Time.deltaTime * 10);
+    {
+        //?????? ?????? hp???? ???????? ???????? ????
+        hpbar.value = Mathf.Lerp(hpbar.value, gameInstance.curHp / gameInstance.maxHp, Time.deltaTime * 10);
     }
 
 
 
     public void HitObstacle()
     {
-        if (curHp > 0 && !itemCollection.bPowerUp)
+        if (gameInstance.curHp > 0 && !itemCollection.bPowerUp)
         {
 
             StartCoroutine(HitObstacleICoroutine());
 
-            if (curHp <= 0)
+            if (gameInstance.curHp <= 0)
             {
 
                 StartCoroutine(PlayerDeadCoroutine());
@@ -196,14 +197,14 @@ public class PlayerCtrl : MonoBehaviour
     IEnumerator HitObstacleICoroutine()
     {
         IsHit = true;
-        curHp -= 10;
+        gameInstance.curHp -= 10;
 
         if (IsHit)
         {
             foreach (SkinnedMeshRenderer mesh in meshs)
             {
                 mesh.material.color = Color.red;
-                SoundManager.Play(E_SOUNLIST.E_Damage);
+                audioManager.soundEffectAudio[2].Play();
             }
             movement.moveSpeed = 17f;
 
@@ -228,21 +229,19 @@ public class PlayerCtrl : MonoBehaviour
     IEnumerator JumpOrDownTouchCoroutine()
     {
         IsSlied = true;
-       
         //capsuleCol.enabled = false;
 
         if (movement.isJump)
         {
             //start Jumpanim trigger
-            anim.SetBool("IsJump", true);           
+            anim.SetBool("IsJump", true);
         }
         else
         {
-            anim.SetBool("IsSlide", true);           
+            anim.SetBool("IsSlide", true);
         }
 
         yield return new WaitForSeconds(0.2f);
-        
         IsSlied = false;
 
 

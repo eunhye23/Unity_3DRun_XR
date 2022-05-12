@@ -23,7 +23,6 @@ public class GameScene : HSingleton<GameScene>
 
     public float StartdelayT;
     public bool IsStartDelay = false;
-    bool isStage;
 
     /// <summary>
     /// UI text모음
@@ -37,21 +36,31 @@ public class GameScene : HSingleton<GameScene>
     public TextMeshProUGUI time_text;
     public TextMeshProUGUI time_text_die;
 
+    public TextMeshProUGUI StartTimeT;
+    public GameObject StartPanel;
+
     //ItemCtrl itemctrl;
-    GameInstance gameInstance;
+    private GameInstance gameInstance;
+    private AudioManager audioManager;
 
     /// <summary>
     /// UI타이머 설정
     /// </summary>
     private GameObject player;
     public float startTime;
+
+    float timeT = 3;
+
     float sec;
     float min;
+
+    public List<Image> StarImgs;
 
     private void Awake()
     {
         //itemctrl = GameObject.FindGameObjectWithTag("Items").GetComponent<ItemCtrl>();
         gameInstance = GameObject.Find("GameInstance").GetComponent<GameInstance>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
     }
     private void Start()
@@ -59,23 +68,33 @@ public class GameScene : HSingleton<GameScene>
         GotoLobbyScene();
         player = GameObject.Find("Player");
         StartCoroutine("UI_Time");
-        SoundManager.Play(E_SOUNLIST.E_GameSound);
+        audioManager.backgroundAudio[1].Play();
+        Invoke("InvokeStartT", 3.1f);
+        for (int i = 0; i < 3; i++)
+        {
+            Color color = StarImgs[i].GetComponent<Image>().color;
+            color.a = 0f;
+            StarImgs[i].GetComponent<Image>().color = color;
+        }
     }
     public void Update()
     {
+        GameStartTimer();
+
         coinT.text = gameInstance.coinScore.ToString();
         coinT_die.text = coinT.text;
 
-        int distance = Mathf.RoundToInt((player.transform.position.z + 12.2f)) / 20;
-        int score = (distance * 10) + (int)(Time.deltaTime + 100);
+        gameInstance.stage01Distance = Mathf.RoundToInt((player.transform.position.z + 12.2f)) / 20;
+        gameInstance.stage01Score = (gameInstance.stage01Distance * 10) + (int)(Time.deltaTime + 100);
             //(distance * 5) + (int)(Time.deltaTime + 100);
-        distance_text.text = distance.ToString() + "M";
-        distance_text_die.text = distance.ToString() + "M";
 
+        distance_text.text = gameInstance.stage01Distance.ToString() + "M";
+        distance_text_die.text = gameInstance.stage01Distance.ToString() + "M";
 
-        score_text.text = score.ToString();
-        score_text_die.text = score.ToString();
+        score_text.text = gameInstance.stage01Score.ToString();
+        score_text_die.text = gameInstance.stage01Score.ToString();
 
+        gameInstance.Stage01Star(StarImgs);
     }
 
     //[사용자 정의함수]===================================================================
@@ -84,12 +103,6 @@ public class GameScene : HSingleton<GameScene>
     //====================================================================================
     //====================================================================================
     //====================================================================================
-    public void PlaySound()
-    {
-        
-        { 
-        }
-    }
     IEnumerator UI_Time()
     {
         while (true)
@@ -106,6 +119,30 @@ public class GameScene : HSingleton<GameScene>
         }
     }
 
+    void GameStartTimer()
+    {
+        if(!gameInstance.Stage01Start)
+        {
+            StartPanel.SetActive(true);
+
+            if (Mathf.Floor(timeT) <= 0)
+                return;
+
+            else
+            {
+                timeT -= Time.deltaTime;
+
+                StartTimeT.text = Mathf.Floor(timeT).ToString();
+
+            }
+        }
+    }
+
+    void InvokeStartT()
+    {
+        gameInstance.Stage01Start = true;
+        StartPanel.SetActive(false);
+    }
 
     public void StartDelayTime()
     {
@@ -150,7 +187,7 @@ public class GameScene : HSingleton<GameScene>
     }
     public void GamePauseBtn()
     {
-        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
+        audioManager.soundEffectAudio[0].Play();
         GamePause();
         pausePanel.SetActive(true);      
     }
@@ -160,8 +197,13 @@ public class GameScene : HSingleton<GameScene>
         if (IsPause)
         {
             Time.timeScale = 1;
-            IsPause = false;
-            SoundManager.Play(E_SOUNLIST.E_EATBULLET);
+            IsPause = false; 
+            
+            if (ReStartPanel)
+            {
+                ReStartPanel.SetActive(false);
+            }
+            audioManager.soundEffectAudio[0].Play();
             pausePanel.SetActive(false);
             OptionPanel.SetActive(false);
             return;
@@ -170,39 +212,39 @@ public class GameScene : HSingleton<GameScene>
 
     public void RestartQBtn()
     {
-        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
+        audioManager.soundEffectAudio[0].Play();
         ReStartPanel.SetActive(true);
     }
 
-    public void GoToLobbyBtn()
+    public void GoToReGameBtn()
     {
         IsPause = false;
+        gameInstance.Stage01Start = false;
+        audioManager.soundEffectAudio[0].Play();
         Time.timeScale = 1;
-        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
         //fade in fade out? 넣어야할듯 , UI초기화도 필요
         SceneManager.LoadScene("2_LobbyScene");  //3_GameScene
-        SoundManager.AStop();
+        audioManager.backgroundAudio[1].Stop();
+        
     }
 
     public void GoToOptionBtn()
     {
-        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
+        audioManager.soundEffectAudio[0].Play();
         OptionPanel.SetActive(true);
         pausePanel.SetActive(false);
     }
 
     public void GoToBackBtn()
     {
-        SoundManager.Play(E_SOUNLIST.E_EATBULLET);
+        audioManager.soundEffectAudio[0].Play();
         OptionPanel.SetActive(false);
         ReStartPanel.SetActive(false);
         pausePanel.SetActive(true);
-        
     }
     public void GoToQuitBtn()
     {
 #if UNITY_EDITOR
-        
         UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit(); // 어플리케이션 종료

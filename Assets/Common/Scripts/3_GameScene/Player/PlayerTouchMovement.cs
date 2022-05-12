@@ -8,41 +8,45 @@ public class PlayerTouchMovement : MonoBehaviour
     private float moveTimeX = 0.1f;
     private bool isXMove = false;
 
-    private float originY = 0.8f;
-    private float gravity = -20.81f;
+    private float originY = 0.4f;
+    private float gravity = -10.81f;
     private float moveTimeY = 0.5f;
     public bool isJump = false;
 
     [SerializeField]
     public float moveSpeed = 20.0f;
 
-    private float rotateSpeed = 300.0f;
-
     private float limitY = -2.0f;
 
     private Rigidbody rd;
 
     PlayerCtrl playerCtrl;
+    private AudioManager audioManager;
 
     private void Awake()
     {
         rd = GetComponent<Rigidbody>();
         playerCtrl = GetComponent<PlayerCtrl>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     private void Update()
     {
-        if(!playerCtrl.PlayerDie)
+        if(playerCtrl.gameInstance.Stage01Start)
         {
-            transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
+            if (!playerCtrl.PlayerDie)
+            {
+                transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
 
-            //transform.Rotate(Vector3.right * rotateSpeed * Time.deltaTime);
-        }
+                //transform.Rotate(Vector3.right * rotateSpeed * Time.deltaTime);
+            }
 
-        if (transform.position.y < limitY)
-        {
-            Debug.Log("gameover");
-            playerCtrl.PlayerDie = true;
+            if (transform.position.y < limitY)
+            {
+                Debug.Log("gameover");
+                playerCtrl.PlayerDie = true;
+            }
+
         }
     }
 
@@ -67,7 +71,7 @@ public class PlayerTouchMovement : MonoBehaviour
     {
         if (isJump == true)
             return;
-        
+
         StartCoroutine(OnMoveToY());
     }
 
@@ -104,7 +108,8 @@ public class PlayerTouchMovement : MonoBehaviour
 
         isJump = true;
         rd.useGravity = false;
-        SoundManager.Play(E_SOUNLIST.E_Jump);
+        audioManager.soundEffectAudio[1].Play();
+
 
         while (percent < 1)
         {
@@ -112,20 +117,18 @@ public class PlayerTouchMovement : MonoBehaviour
             percent = current / moveTimeY;
 
             float y = originY + (v0 * percent) + (gravity * percent * percent);
-            
             transform.position = new Vector3(transform.position.x,Mathf.Clamp(y,0,7), transform.position.z);
-            
 
             yield return null;
 
         }
-        rd.useGravity = true;
 
         yield return new WaitForSeconds(0.2f);
+        rd.useGravity = true;
 
         //this.transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-        //Vector3 endPos = new Vector3(transform.position.x, 0, transform.position.z);
-        //this.transform.position = endPos;
+        Vector3 endPos = new Vector3(transform.position.x, 0, transform.position.z);
+        this.transform.position = endPos;
 
         isJump = false;
 

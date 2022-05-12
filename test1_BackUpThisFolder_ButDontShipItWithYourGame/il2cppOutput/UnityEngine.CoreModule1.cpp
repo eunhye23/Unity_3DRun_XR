@@ -538,8 +538,6 @@ struct PlayerConnectionInternal_tCF794B96149B0D299C2E6F0CA4F2E94E35782BC9;
 struct PlayerEditorConnectionEvents_tF92F4A9A0EDAB7D3D544AE9B0F3F925C4E48B7CB;
 // UnityEngine.LowLevel.PlayerLoopSystem
 struct PlayerLoopSystem_t8AED6BF1C8A309CAA6FF71AC91DD33BDDFF7CF1F;
-// UnityEngine.PlayerPrefsException
-struct PlayerPrefsException_t960857DB45C7B0D7B7CEAC7FBA346D68DBDA0CB5;
 // UnityEngine.PreloadData
 struct PreloadData_t49FDACFF753DB0A91B1BB707B8EE0B9375938613;
 // UnityEngine.Scripting.PreserveAttribute
@@ -763,7 +761,6 @@ IL2CPP_EXTERN_C RuntimeClass* PersistentCallGroup_tB826EDF15DC80F71BCBCD8E410FD9
 IL2CPP_EXTERN_C RuntimeClass* PlayerConnectionInternal_tCF794B96149B0D299C2E6F0CA4F2E94E35782BC9_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* PlayerConnection_tE21E6206D6FC40F07B3842D83BCB0732C9244E53_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* PlayerEditorConnectionEvents_tF92F4A9A0EDAB7D3D544AE9B0F3F925C4E48B7CB_il2cpp_TypeInfo_var;
-IL2CPP_EXTERN_C RuntimeClass* PlayerPrefsException_t960857DB45C7B0D7B7CEAC7FBA346D68DBDA0CB5_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Predicate_1_t6F78EB768ADC7C118AD7254414DA44D4F6B69E55_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* PropertyName_tE4B4AAA58AF3BF2C0CD95509EB7B786F096901C2_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974_il2cpp_TypeInfo_var;
@@ -846,7 +843,6 @@ IL2CPP_EXTERN_C String_t* _stringLiteral3A89C966CAF63D124829CBE94CF38A7B43E9FC1C
 IL2CPP_EXTERN_C String_t* _stringLiteral3D867D549331FF350C2A5DBB625FD2142F4DBB84;
 IL2CPP_EXTERN_C String_t* _stringLiteral40603CB9C3C2F0F007BD4C59CEB195FB17927F5C;
 IL2CPP_EXTERN_C String_t* _stringLiteral4379B0249B80A34ABC2748B5F0D030FD7D4E007C;
-IL2CPP_EXTERN_C String_t* _stringLiteral4A4C03580B87CA62119DAC9A0EE8D32779B4F031;
 IL2CPP_EXTERN_C String_t* _stringLiteral4C6CE5DF96D354231E70A806FC48C28A97F4E4F6;
 IL2CPP_EXTERN_C String_t* _stringLiteral4DA40F86FA6B66D1B6831F82ADF65BBE193ABB05;
 IL2CPP_EXTERN_C String_t* _stringLiteral4FEEB8D75A2FD285E0FC86F7E4104FA3A7AA777D;
@@ -994,7 +990,6 @@ IL2CPP_EXTERN_C const RuntimeMethod* PlayerConnection_MessageCallbackInternal_m4
 IL2CPP_EXTERN_C const RuntimeMethod* PlayerConnection_Register_m8760D786583FD5793A2FCE5EEB8DDA17C649CF86_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* PlayerConnection_Send_mBFE41D75C28DF0885455CE809D40C489818F91B7_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* PlayerConnection_TrySend_m6D589698ADF1E9A0E4CC208651F6CC86AD572423_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* PlayerPrefs_SetFloat_m91048D03E901CC01EAD6FEF8F27148F9D2D72DBF_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Scene_GetRootGameObjects_m099D50FE3AF09AEE788071DA9AE620C8E6675DF0_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ScriptableObject_CreateInstance_TisPlayerConnection_tE21E6206D6FC40F07B3842D83BCB0732C9244E53_m354934C116BAE88C636901A08D25798EA521FC8D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* SetupCoroutine_InvokeMoveNext_m4C8B79D8A35F69EEECAA16C82793525E74D75CE9_RuntimeMethod_var;
@@ -1698,11 +1693,6 @@ struct PlayerEditorConnectionEvents_tF92F4A9A0EDAB7D3D544AE9B0F3F925C4E48B7CB  :
 	ConnectionChangeEvent_t248B606ACAD196280E928DF0A51C489CFED3978B* ___connectionEvent_1;
 	// UnityEngine.Networking.PlayerConnection.PlayerEditorConnectionEvents/ConnectionChangeEvent UnityEngine.Networking.PlayerConnection.PlayerEditorConnectionEvents::disconnectionEvent
 	ConnectionChangeEvent_t248B606ACAD196280E928DF0A51C489CFED3978B* ___disconnectionEvent_2;
-};
-
-// UnityEngine.PlayerPrefs
-struct PlayerPrefs_t0C3401B2ABFDEB9EC8D083F9FB8B1EA4BEA01CDC  : public RuntimeObject
-{
 };
 
 // UnityEngine.PropertyNameUtils
@@ -6243,11 +6233,6 @@ struct PersistentCall_tECEBF49ED60D3AEE696FCCDB50DA03C1A9EBD5AF  : public Runtim
 	int32_t ___m_CallState_5;
 };
 
-// UnityEngine.PlayerPrefsException
-struct PlayerPrefsException_t960857DB45C7B0D7B7CEAC7FBA346D68DBDA0CB5  : public Exception_t
-{
-};
-
 // UnityEngine.PreloadData
 struct PreloadData_t49FDACFF753DB0A91B1BB707B8EE0B9375938613  : public Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C
 {
@@ -7870,14 +7855,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlayerConnectionInternal_IsConnected_mC7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerConnectionInternal_DisconnectAll_m829AFC50AB1C38E8B429FBD35DA082D1D21524F8 (const RuntimeMethod* method) ;
 // System.Void System.Object::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2 (RuntimeObject* __this, const RuntimeMethod* method) ;
-// System.Void System.Exception::.ctor(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Exception__ctor_m9B2BD92CD68916245A75109105D9071C9D430E7F (Exception_t* __this, String_t* ___message0, const RuntimeMethod* method) ;
-// System.Boolean UnityEngine.PlayerPrefs::TrySetFloat(System.String,System.Single)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlayerPrefs_TrySetFloat_m2DC2F81904487FCA21458027D19C4170158AA56A (String_t* ___key0, float ___value1, const RuntimeMethod* method) ;
-// System.Void UnityEngine.PlayerPrefsException::.ctor(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerPrefsException__ctor_m89A0364957C9AD220773C847E9AD8D54FED067FB (PlayerPrefsException_t960857DB45C7B0D7B7CEAC7FBA346D68DBDA0CB5* __this, String_t* ___error0, const RuntimeMethod* method) ;
-// System.Single UnityEngine.PlayerPrefs::GetFloat(System.String,System.Single)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float PlayerPrefs_GetFloat_m8DA6A99E54E6E463048B06988520021347012293 (String_t* ___key0, float ___defaultValue1, const RuntimeMethod* method) ;
 // System.Void System.Attribute::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Attribute__ctor_m79ED1BF1EE36D1E417BA89A0D9F91F8AAD8D19E2 (Attribute_tFDA8EFEFB0711976D22474794576DAF28F7440AA* __this, const RuntimeMethod* method) ;
 // System.Void UnityEngine.PropertyAttribute::.ctor()
@@ -8101,6 +8078,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool String_StartsWith_mF75DBA1EB709811E711B4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Substring_mB1D94F47935D22E130FF2C01DBB6A4135FBB76CE (String_t* __this, int32_t ___startIndex0, int32_t ___length1, const RuntimeMethod* method) ;
 // System.String System.Int32::ToString()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Int32_ToString_m030E01C24E294D6762FB0B6F37CB541581F55CA5 (int32_t* __this, const RuntimeMethod* method) ;
+// System.Void System.Exception::.ctor(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Exception__ctor_m9B2BD92CD68916245A75109105D9071C9D430E7F (Exception_t* __this, String_t* ___message0, const RuntimeMethod* method) ;
 // System.Void System.Exception::set_HResult(System.Int32)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Exception_set_HResult_m010A171183E240EBF4F7611E924B533FAB2E471F_inline (Exception_t* __this, int32_t ___value0, const RuntimeMethod* method) ;
 // System.Void System.Exception::.ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
@@ -14975,114 +14954,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerConnectionInternal__ctor_m522FC54B
 		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
 		return;
 	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void UnityEngine.PlayerPrefsException::.ctor(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerPrefsException__ctor_m89A0364957C9AD220773C847E9AD8D54FED067FB (PlayerPrefsException_t960857DB45C7B0D7B7CEAC7FBA346D68DBDA0CB5* __this, String_t* ___error0, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Exception_t_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		String_t* L_0 = ___error0;
-		il2cpp_codegen_runtime_class_init_inline(Exception_t_il2cpp_TypeInfo_var);
-		Exception__ctor_m9B2BD92CD68916245A75109105D9071C9D430E7F(__this, L_0, NULL);
-		return;
-	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Boolean UnityEngine.PlayerPrefs::TrySetFloat(System.String,System.Single)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlayerPrefs_TrySetFloat_m2DC2F81904487FCA21458027D19C4170158AA56A (String_t* ___key0, float ___value1, const RuntimeMethod* method) 
-{
-	typedef bool (*PlayerPrefs_TrySetFloat_m2DC2F81904487FCA21458027D19C4170158AA56A_ftn) (String_t*, float);
-	static PlayerPrefs_TrySetFloat_m2DC2F81904487FCA21458027D19C4170158AA56A_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (PlayerPrefs_TrySetFloat_m2DC2F81904487FCA21458027D19C4170158AA56A_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.PlayerPrefs::TrySetFloat(System.String,System.Single)");
-	bool icallRetVal = _il2cpp_icall_func(___key0, ___value1);
-	return icallRetVal;
-}
-// System.Void UnityEngine.PlayerPrefs::SetFloat(System.String,System.Single)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerPrefs_SetFloat_m91048D03E901CC01EAD6FEF8F27148F9D2D72DBF (String_t* ___key0, float ___value1, const RuntimeMethod* method) 
-{
-	bool V_0 = false;
-	{
-		String_t* L_0 = ___key0;
-		float L_1 = ___value1;
-		bool L_2;
-		L_2 = PlayerPrefs_TrySetFloat_m2DC2F81904487FCA21458027D19C4170158AA56A(L_0, L_1, NULL);
-		V_0 = (bool)((((int32_t)L_2) == ((int32_t)0))? 1 : 0);
-		bool L_3 = V_0;
-		if (!L_3)
-		{
-			goto IL_001a;
-		}
-	}
-	{
-		PlayerPrefsException_t960857DB45C7B0D7B7CEAC7FBA346D68DBDA0CB5* L_4 = (PlayerPrefsException_t960857DB45C7B0D7B7CEAC7FBA346D68DBDA0CB5*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&PlayerPrefsException_t960857DB45C7B0D7B7CEAC7FBA346D68DBDA0CB5_il2cpp_TypeInfo_var)));
-		NullCheck(L_4);
-		PlayerPrefsException__ctor_m89A0364957C9AD220773C847E9AD8D54FED067FB(L_4, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral4A4C03580B87CA62119DAC9A0EE8D32779B4F031)), NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_4, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&PlayerPrefs_SetFloat_m91048D03E901CC01EAD6FEF8F27148F9D2D72DBF_RuntimeMethod_var)));
-	}
-
-IL_001a:
-	{
-		return;
-	}
-}
-// System.Single UnityEngine.PlayerPrefs::GetFloat(System.String,System.Single)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float PlayerPrefs_GetFloat_m8DA6A99E54E6E463048B06988520021347012293 (String_t* ___key0, float ___defaultValue1, const RuntimeMethod* method) 
-{
-	typedef float (*PlayerPrefs_GetFloat_m8DA6A99E54E6E463048B06988520021347012293_ftn) (String_t*, float);
-	static PlayerPrefs_GetFloat_m8DA6A99E54E6E463048B06988520021347012293_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (PlayerPrefs_GetFloat_m8DA6A99E54E6E463048B06988520021347012293_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.PlayerPrefs::GetFloat(System.String,System.Single)");
-	float icallRetVal = _il2cpp_icall_func(___key0, ___defaultValue1);
-	return icallRetVal;
-}
-// System.Single UnityEngine.PlayerPrefs::GetFloat(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float PlayerPrefs_GetFloat_mF682C7FE84BAE6EED61B6623E7D4458ECDDBE896 (String_t* ___key0, const RuntimeMethod* method) 
-{
-	float V_0 = 0.0f;
-	{
-		String_t* L_0 = ___key0;
-		float L_1;
-		L_1 = PlayerPrefs_GetFloat_m8DA6A99E54E6E463048B06988520021347012293(L_0, (0.0f), NULL);
-		V_0 = L_1;
-		goto IL_000f;
-	}
-
-IL_000f:
-	{
-		float L_2 = V_0;
-		return L_2;
-	}
-}
-// System.Boolean UnityEngine.PlayerPrefs::HasKey(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlayerPrefs_HasKey_m9EB15A18BE611107251F2E2F6CE70636F88CAB5F (String_t* ___key0, const RuntimeMethod* method) 
-{
-	typedef bool (*PlayerPrefs_HasKey_m9EB15A18BE611107251F2E2F6CE70636F88CAB5F_ftn) (String_t*);
-	static PlayerPrefs_HasKey_m9EB15A18BE611107251F2E2F6CE70636F88CAB5F_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (PlayerPrefs_HasKey_m9EB15A18BE611107251F2E2F6CE70636F88CAB5F_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.PlayerPrefs::HasKey(System.String)");
-	bool icallRetVal = _il2cpp_icall_func(___key0);
-	return icallRetVal;
 }
 #ifdef __clang__
 #pragma clang diagnostic pop

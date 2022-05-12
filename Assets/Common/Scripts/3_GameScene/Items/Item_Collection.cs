@@ -18,18 +18,14 @@ public class Item_Collection : MonoBehaviour
 
     public SphereCollider sphereCol;
 
+    public Transform[] ItemPos;
+
+
     void Start()
     {
         coinDetectorObj.SetActive(false);
 
     }
-
-
-    void Update()
-    {
-
-    }
-
     //[사용자 정의 함수]==================================================================
     //====================================================================================
     //====================================================================================
@@ -52,7 +48,6 @@ public class Item_Collection : MonoBehaviour
             Debug.Log("PowerUp 나와용");
 
         }
-        //Heart.GetComponent<ItemCtrl>()
     }
 
     public void PowerUp()
@@ -79,20 +74,4 @@ public class Item_Collection : MonoBehaviour
         Debug.Log("ihihihihihihiihihihhihi");
 
     }
-
-    // Update is called once per frame
-    public void ActivateCoin()
-    {
-        Debug.Log("함수에들어와여");
-        StartCoroutine(ActivateCoinCoroutine());
-        // Destroy(transform.GetChild(0).gameObject);
-    }
-
-    IEnumerator ActivateCoinCoroutine()
-    {
-        coinDetectorObj.SetActive(true);
-        yield return new WaitForSeconds(6f);
-        coinDetectorObj.SetActive(false);
-    }
-
 }

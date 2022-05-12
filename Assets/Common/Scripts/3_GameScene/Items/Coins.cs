@@ -7,16 +7,17 @@ public class Coins : MonoBehaviour
     public enum Coin_Type { GOID, SILVER, BLONZE };
     public Coin_Type coinType;
 
-    public float moveSpeed = 30;
-    public PlayerCtrl player;
+    public float moveSpeed = 7;
+    public GameObject player;
     public GameInstance gameInstance;
+    private AudioManager audioManager;
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
+        player = GameObject.FindGameObjectWithTag("Player");
 
         gameInstance = GameObject.Find("GameInstance").GetComponent<GameInstance>();
-
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
     }
 
@@ -24,6 +25,8 @@ public class Coins : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
+        audioManager.soundEffectAudio[4].Play();
+
         if (other.gameObject.tag == "Coin_Detector")
         {
             //coinMoveScript.enabled = true;
@@ -46,20 +49,29 @@ public class Coins : MonoBehaviour
                     break;
 
                 case Coin_Type.BLONZE:
-                    SoundManager.Play(E_SOUNLIST.E_EATCELL_2);
                     gameInstance.coinScore++;
                     this.gameObject.SetActive(false);
-                    Debug.Log(gameInstance.coinScore);
 
                     break;
             }
+
+            //StartCoroutine(CoinActiveTrueCoroutine());
         }
     }
 
+    IEnumerator CoinActiveTrueCoroutine()
+    {
+
+        yield return new WaitForSeconds(3f);
+        if(this.gameObject.activeSelf ==false)
+        {
+            this.gameObject.SetActive(true);
+        }
+
+    }
     void MoveCoins()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position,
-        moveSpeed * Time.deltaTime);
-
+        Vector3 YPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z + 1f);
+        transform.position = Vector3.MoveTowards(player.transform.position, YPos, moveSpeed * Time.deltaTime);
     }
 }
